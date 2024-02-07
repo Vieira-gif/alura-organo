@@ -15,14 +15,18 @@ const Formulario = () => {
         'Inovação & Gestão'
     ]
 
+
     return (
         <section className={"formulario"}>
-            <form>
+            <form onSubmit={event => {
+                event.preventDefault()
+                console.log('Form Enviado!')
+            }}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto placeholder={"Digite seu nome"}>Nome</CampoTexto>
-                <CampoTexto placeholder={"Digite seu cargo"}>Cargo</CampoTexto>
+                <CampoTexto placeholder={"Digite seu nome"} obrigatorio={true}>Nome</CampoTexto>
+                <CampoTexto placeholder={"Digite seu cargo"} obrigatorio={true}>Cargo</CampoTexto>
                 <CampoTexto placeholder={"Carregue sua imagem neste campo"}>Imagem</CampoTexto>
-                <ListaSuspensa itens={times}>Time</ListaSuspensa>
+                <ListaSuspensa itens={times} obrigatorio={true}>Time</ListaSuspensa>
                 <Botao>Criar Card</Botao>
             </form>
         </section>
