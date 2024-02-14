@@ -4,7 +4,7 @@ import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
 import {useState} from "react";
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const times = [
         'Programação',
@@ -26,8 +26,12 @@ const Formulario = () => {
         <section className={"formulario"}>
             <form onSubmit={event => {
                 event.preventDefault()
-                console.log('Form Enviado!')
-                console.log(nome, cargo, imagem, time)
+                props.aoColaboradorCadastrado({
+                    nome,
+                    cargo,
+                    imagem,
+                    time
+                })
             }}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
                 <CampoTexto placeholder={"Digite seu nome"} obrigatorio={true} valor={nome} aoAlterar={valor => setNome(valor)}>Nome</CampoTexto>
