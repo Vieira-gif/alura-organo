@@ -1,14 +1,5 @@
 import Banner from "./component/Banner";
 import Formulario from "./component/Formulario";
-<<<<<<< HEAD
-import {useState} from "react";
-function App() {
-
-    const [colaboradores, setColaboradores] = useState([])
-
-    const aoNovoColaboradoresAdicionado = (colaborador) => {
-        console.log(colaborador)
-=======
 import Time from "./component/Time";
 import {useState} from "react";
 function App() {
@@ -55,19 +46,14 @@ function App() {
     const [colaboradores, setColaboradores] = useState([])
 
     const aoNovoColaboradorAdicionar = colaborador => {
->>>>>>> 60450b427a7d06206026ce5313cc4b650b134ae5
         setColaboradores([...colaboradores, colaborador])
     }
 
     return (
         <div className="App">
             <Banner/>
-<<<<<<< HEAD
-            <Formulario aoColaboradorCadastrado={colaborador => aoNovoColaboradoresAdicionado(colaborador)}/>
-=======
             <Formulario time={times.map(t => t.nome)} aoColaboradoCadastrado = {aoNovoColaboradorAdicionar}/>
             {times.map(time => <Time key={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}>{time.nome}</Time>)}
->>>>>>> 60450b427a7d06206026ce5313cc4b650b134ae5
         </div>
     );
 }
