@@ -2,6 +2,7 @@ import Banner from "./component/Banner";
 import Formulario from "./component/Formulario";
 import Time from "./component/Time";
 import {useState} from "react";
+import Rodape from "./component/Rodape";
 function App() {
 
     const times = [
@@ -53,7 +54,13 @@ function App() {
         <div className="App">
             <Banner/>
             <Formulario time={times.map(t => t.nome)} aoColaboradoCadastrado = {aoNovoColaboradorAdicionar}/>
-            {times.map(time => <Time key={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}>{time.nome}</Time>)}
+            {times.map((time, index) =>
+                <Time key={index}
+                      corPrimaria={time.corPrimaria}
+                      corSecundaria={time.corSecundaria}
+                      colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+                >{time.nome}</Time>)}
+            <Rodape></Rodape>
         </div>
     );
 }
